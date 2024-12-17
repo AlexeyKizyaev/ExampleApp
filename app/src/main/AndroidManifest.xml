@@ -23,4 +23,8 @@
         </activity>
     </application>
 
+    <meta-data
+        android:name="app_uuid"
+        android:value="efbc9d9a-7fe4-4e98-a0d2-3d4969e7fa0d" />
+
 </manifest>
