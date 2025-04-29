@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="ru.evotor.permission.receipt.printExtra.SET" />
+    <uses-permission android:name="ru.evotor.permission.RECEIPT_DISCOUNT_REQUIRED_EVENT" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -21,10 +24,49 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="app_uuid"
+            android:value="efbc9d9a-7fe4-4e98-a0d2-3d4969e7fa0d" />
+
+        <!--<service
+            android:name=".PositionEditService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="evo.v2.receipt.sell.beforePositionsEdited" />
+            </intent-filter>
+        </service>-->
+
+        <service
+            android:name=".ExtraPrintService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <!-- Печать произвольных данных в чеке продажи -->
+                <action android:name="evo.v2.receipt.sell.printExtra.REQUIRED" />
+                <!-- Печать произвольных данных в чеке возврата -->
+                <action android:name="evo.v2.receipt.payback.printExtra.REQUIRED" />
+                <!-- Печать произвольных данных в чеке покупки -->
+                <action android:name="evo.v2.receipt.buy.printExtra.REQUIRED" />
+                <!-- Печать произвольных данных в чеке возврата покупки -->
+                <action android:name="evo.v2.receipt.buyback.printExtra.REQUIRED" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".PositionEditService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="evotor.intent.action.receipt.sell.POSITION_ADDED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
-    <meta-data
-        android:name="app_uuid"
-        android:value="efbc9d9a-7fe4-4e98-a0d2-3d4969e7fa0d" />
+
 
 </manifest>

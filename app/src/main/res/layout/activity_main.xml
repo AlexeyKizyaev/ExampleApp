@@ -11,4 +11,28 @@
         android:layout_height="wrap_content"
         android:text="Получить из БД"/>
 
+    <Button
+        android:id="@+id/button_getFeaturesStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Получить статус по функциям терминала"/>
+
+    <Button
+        android:id="@+id/button_getReceipt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Открыть чек"/>
+
+    <Button
+        android:id="@+id/button_getProductTaxNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Получить данные по налогу"/>
+
+    <Button
+        android:id="@+id/button_getSellReceipt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Получить данные по открытому чек"/>
+
 </LinearLayout>
